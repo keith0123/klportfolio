@@ -1,0 +1,199 @@
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+body {
+  background: #fff;
+  padding-top: 3em;
+  word-wrap: break-word
+}
+
+.typewriter h1{
+  color: #000;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid transparent; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  padding-left: .15em;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end 7;
+}
+
+.typewriter #job{
+  color: #000;
+  overflow: hidden;
+  border-right: .15em solid transparent;
+  white-space: nowrap;
+  padding-left: .15em;
+  padding-bottom: 2px;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  opacity: 0;
+  animation: 
+    reveal .1s linear 3.5s 1 normal forwards,
+    typingJob 3.5s steps(30, end) 3.5s,
+    blink-caret .5s step-end 3.5s 7;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 85% }
+}
+
+@keyframes typingJob {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #000 }
+}
+
+@keyframes reveal{
+  0%, 100%
+  { opacity: 1 }
+}
+
+a{
+  color: #000  !important;
+}
+
+a:hover{
+  color: #007bff !important;
+}
+
+#social{
+  margin-top: 1rem;
+}
+
+.project{
+  max-width: 95%;
+  border-radius: .25rem ;
+  border: .0625rem solid #dee2e6;
+
+  &:before, &:after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-width: 0;
+    transition: all .5s cubic-bezier(1,.2,.26,.7);
+    transform: translate(0px, 0px) scale(.8);
+    opacity: 0;
+  }
+  &:before{
+
+    @include for-phone-only {
+      left: 7%;
+      bottom: 7%;
+    }
+
+    @include for-tablet-portrait-up {
+      left: 3.5%;
+      bottom: 3.5%;
+    }
+  
+    @include for-tablet-landscape-up {
+      left: 3.5%;
+      bottom: 3.5%;
+    }
+  
+    @include for-desktop-up {
+      left: 4%;
+      bottom: 4%;
+    }
+
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+  }
+  &:after{
+
+    @include for-phone-only {
+      right: 7%;
+      top: 7%;
+    }
+    
+    @include for-tablet-portrait-up {
+    right: 3.5%;
+    top: 3.5%;
+    }
+  
+    @include for-tablet-landscape-up {
+    right: 3.5%;
+    top: 3.5%;
+    }
+  
+    @include for-desktop-up {
+    right: 4%;
+    top: 4%;
+    }
+
+    border-top-width: 1px;
+    border-right-width: 1px;
+  }
+  &:hover{
+    &:before, &:after{
+      transition: all 2s cubic-bezier(.14,1.13,0,.91);
+      opacity: 1;
+    }
+    &:before{
+      transform: translate(-30px, 20px) scale(1);
+      border-bottom-width: 12px;
+      border-left-width: 12px;
+    }
+    &:after{
+      transform: translate(30px, -20px) scale(1);
+      border-top-width: 12px;
+      border-right-width: 12px;
+    }
+
+    border-style: hidden;
+    padding: 1.0625rem !important;
+
+  }
+}
+
+#sitecore.project{
+  &:before, &:after{
+  border-color: #FF0000 !important;}
+
+  & a:hover{
+    color: #FF0000 !important;
+  }
+}
+
+#blacklamp.project{
+  &:before, &:after{
+  border-color: #007bff !important;
+  }
+
+  & a:hover{
+    color: #007bff !important;
+  }
+}
+
+#chrn.project{
+  &:before, &:after{
+  border-color: #d400ff !important;
+  }
+
+  & a:hover{
+    color: #d400 !important;
+  }
+}
