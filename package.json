@@ -1,7 +1,7 @@
 {
-  "name": "keithileon.com",
+  "name": "klportfolio.info",
   "version": "1.0.0",
-  "description": "Personal Site for Keith Leon",
+  "description": "Portfolio Site",
   "main": "src/index.html",
   "scripts": {
     "build": "webpack --config webpack/prod.js ",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/keithleon/keithileon.com"
+    "url": "https://github.com/keith0123/klportfolio.info"
   },
   "author": "Keith Leon",
-  "homepage": "https://keithileon.com",
+  "homepage": "https://klportfolio.info",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
