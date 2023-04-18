@@ -100,7 +100,7 @@ a:hover{
   &:before{
 
     @include for-phone-only {
-      left: 7%;
+      left: 12%;
       bottom: 7%;
     }
 
@@ -125,7 +125,7 @@ a:hover{
   &:after{
 
     @include for-phone-only {
-      right: 7%;
+      right: 12%;
       top: 7%;
     }
     
@@ -153,12 +153,12 @@ a:hover{
       opacity: 1;
     }
     &:before{
-      transform: translate(-30px, 20px) scale(1);
+      transform: translate(-2.7rem, 1.2rem) scale(1);
       border-bottom-width: 12px;
       border-left-width: 12px;
     }
     &:after{
-      transform: translate(30px, -20px) scale(1);
+      transform: translate(2.7rem, -1.2rem) scale(1);
       border-top-width: 12px;
       border-right-width: 12px;
     }
@@ -166,15 +166,6 @@ a:hover{
     border-style: hidden;
     padding: 1.0625rem !important;
 
-  }
-}
-
-#sitecore.project{
-  &:before, &:after{
-  border-color: #FF0000 !important;}
-
-  & a:hover{
-    color: #FF0000 !important;
   }
 }
 
@@ -197,3 +188,20 @@ a:hover{
     color: #d400ff !important;
   }
 }
+
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3),
+    6: ($spacer * 10)
+  ),
+  $spacers
+);
+
+@import "./node_modules/bootstrap/scss/bootstrap";
